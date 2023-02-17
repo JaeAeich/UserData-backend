@@ -12,13 +12,13 @@ const app = express();
 //middlewares
 app.use(express.json({ limit: "10mb" }));
 app.use(morgan("common"));
-// let origin = "http://localhost:3000";
-// app.use(
-// 	cors({
-// 		credentials: true,
-// 		origin,
-// 	})
-// );
+let origin = "*";
+app.use(
+	cors({
+		credentials: true,
+		origin,
+	})
+);
 
 app.use("/person", userRouter);
 app.get("/", (req, res) => {

@@ -48,7 +48,9 @@ const updateUser = async (req, res) => {
 			thisUser.gender === gender &&
 			thisUser.mobile === mobile
 		) {
-			return res.send(success(200, "User already up-to-date."));
+			return res.send(
+				success(200, `${name, age, gender, mobile} User already up-to-date.`)
+			);
 		}
 
 		await User.updateOne({ _id: id }, { name, age, gender, mobile });
